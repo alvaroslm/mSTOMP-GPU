@@ -1,6 +1,6 @@
 # mSTOMP-GPU
 This is a GPU implementation of the mSTAMP STOMP algorithm. mSTOMP takes multiple time series as input and computes the matrix profile for a particular window size and number of dimensions. You can read more at the [Matrix Profile Homepage](http://www.cs.ucr.edu/~eamonn/MatrixProfile.html)
-The dimensions are read from the input file one after another. The output is done in the same way: matrix profiles for k=1..ndim are output one after another
+The dimensions are read from the input file one after another. The output is done as comma-separated values; for k=1..ndim dimensions each column is the matrix profile 
 
 * Test run with example data (taken from the mSTAMP toy data sample):
   `mSTOMP-GPU.exe 3 30 toy_data30.txt 3 toy_out.txt toy_outi.txt`
