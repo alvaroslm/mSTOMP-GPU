@@ -1,5 +1,5 @@
-#ifndef __STOMP__H_
-#define __STOMP__H_
+#ifndef __MSTOMP__H_
+#define __MSTOMP__H_
 
 #include <cuComplex.h>
 #include <thrust/host_vector.h>
@@ -10,6 +10,15 @@
 #include <thrust/iterator/zip_iterator.h>
 #include <thrust/execution_policy.h>
 
+#define MSTOMP_PRECISION	double
+
+// Maximum number of dimensions
+#define MAX_DIM	64
+
+#define EPSILON 1E-14
+
+
+// Leave this as is
 #define __CUFFT_TYPE__ cuDoubleComplex
 #define CUFFT_FORWARD__ cufftExecD2Z
 #define CUFFT_REVERSE__ cufftExecZ2D
@@ -24,9 +33,9 @@ typedef union  {
 } mp_entry;
 
 
-template<unsigned int count>
+template<unsigned int count, typename DTYPE>
 struct reg_mem {
-    float dist[count];
+    DTYPE dist[count]; //float
     double qt[count];
 };
 
