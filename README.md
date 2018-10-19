@@ -1,7 +1,8 @@
-# STOMPSelfJoin
-This is a GPU implementation of the STOMP algorithm. STOMP takes a time series as input and computes the matrix profile for a particular window size. You can read more at the [Matrix Profile Homepage](http://www.cs.ucr.edu/~eamonn/MatrixProfile.html)
+# mSTOMP-GPU
+This is a GPU implementation of the mSTAMP STOMP algorithm. mSTOMP takes multiple time series as input and computes the matrix profile for a particular window size and number of dimensions. You can read more at the [Matrix Profile Homepage](http://www.cs.ucr.edu/~eamonn/MatrixProfile.html)
+The dimensions are read from the input file one after another. The output is done in the same way: matrix profiles for k=1..ndim are output one after another
 
-For additional features and better performance you should use [SCAMP](http://github.com/zpzim/SCAMP)
+For additional features and better performance you should use [SCAMP](http://github.com/zpzim/SCAMP) (doesn't support multi-STAMP)
 # Environment
 This base project requires:
  * At least version 9.0 of the CUDA toolkit available [here](https://developer.nvidia.com/cuda-toolkit).
@@ -21,9 +22,4 @@ This base project requires:
 * `STOMP 1024 SampleInput/randomlist128K.txt profile.txt index.txt 0 2`
 * By default, if no devices are specified, STOMP will run on all available devices
 
-
-# Matlab hook (deprecated)
- * The matlab hook is deprecated. It will be left here and is still mostly functional, but it will no longer be updated.
- * If you want to use these kernels in Matlab just run `make matlab`. This will output `STOMP.ptx`.
- * Just point Matlab to `STOMP.ptx` and `STOMP.cu` and you should be able to use any of the kernels through the [Matlab parallel computing toolbox](https://www.mathworks.com/products/parallel-computing.html).
- * StompSelfJoinGPU.m is a matlab script which will compute the matrix profile using the GPU. Assuming step 1 was followed.
+* There are Visual Studio 2013 project files for CUDA 9 included
